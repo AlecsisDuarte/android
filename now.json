@@ -1,1 +1,57 @@
-{"version":2,"name":"android","builds":[{"src":"package.json","use":"@now/static-build"}]}
+{
+  "version": 2,
+  "name": "android",
+  "builds": [{
+    "src": "package.json",
+    "use": "@now/static-build",
+    "config": {
+      "distDir": "build"
+    }
+  }],
+  "routes": [{
+      "src": "/static/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=31536000,immutable"
+      },
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/asset-manifest.json",
+      "dest": "/asset-manifest.json"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "/precache-manifest.(.*)",
+      "dest": "/precache-manifest.$1"
+    },
+    {
+      "src": "/googlef87219410dc4d33d.html",
+      "dest": "/googlef87219410dc4d33d.html"
+    },
+    {
+      "src": "/service-worker.js",
+      "headers": {
+        "cache-control": "s-maxage=0"
+      },
+      "dest": "/service-worker.js"
+    },
+    {
+      "src": "/sockjs-node/(.*)",
+      "dest": "/sockjs-node/$1"
+    },
+    {
+      "src": "/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=0"
+      },
+      "dest": "/index.html"
+    }
+  ]
+}
