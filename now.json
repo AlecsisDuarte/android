@@ -36,6 +36,10 @@
       "dest": "/googlef87219410dc4d33d.html"
     },
     {
+      "src": "/privacy_policy.html",
+      "dest": "/privacy_policy.html"
+    },
+    {
       "src": "/service-worker.js",
       "headers": {
         "cache-control": "s-maxage=0"
